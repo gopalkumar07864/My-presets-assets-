@@ -1,1 +1,579 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alight Motion Presets & Templates</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #090d16;
+            --card-bg: rgba(20, 29, 47, 0.8);
+            --accent-color: #00d26a; /* Alight Motion Green Accent */
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 210, 106, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(188, 24, 136, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand i { color: var(--accent-color); }
+
+        .admin-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 15px 0 25px 0;
+        }
+
+        .hero h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Categories Scrollbar */
+        .categories-wrapper {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            scrollbar-width: none;
+        }
+        .categories-wrapper::-webkit-scrollbar { display: none; }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .cat-btn.active {
+            background: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* Grid */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .thumb-box {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            background: #111827;
+        }
+
+        .thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 210, 106, 0.3);
+        }
+
+        .card-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .btn-unlock {
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        /* Lock Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: #131b2e;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            max-width: 380px;
+            width: 100%;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .insta-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--insta-gradient);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 16px auto;
+        }
+
+        .btn-insta {
+            background: var(--insta-gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .btn-download {
+            background: var(--accent-color);
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            margin-top: 14px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Form Inputs */
+        .form-group { text-align: left; margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+        .form-control {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .card-delete-btn {
+            position: absolute;
+            top: 10px; right: 10px;
+            background: rgba(239, 68, 68, 0.9);
+            color: white; border: none;
+            width: 28px; height: 28px;
+            border-radius: 50%; display: none;
+            align-items: center; justify-content: center;
+            cursor: pointer; z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <i class="fa-solid fa-play"></i> AM Presets Hub
+        </div>
+        <button class="admin-btn" onclick="openAdminModal()">
+            <i class="fa-solid fa-gear"></i> Admin
+        </button>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Alight Motion Trending Templates</h1>
+            <p>Follow @edit_the_gopal on Instagram to unlock free XML & Presets!</p>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-wrapper" id="categoriesBar">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">All Templates</button>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="template-grid" id="templateGrid">
+            <!-- Dynamic Data -->
+        </div>
+    </div>
+
+    <!-- Follow Lock Modal -->
+    <div class="modal" id="lockModal">
+        <div class="modal-box">
+            <div class="insta-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <h3>Follow to Unlock Link</h3>
+            <p style="color: var(--text-muted); font-size: 12px; margin-top: 6px;">
+                Download button tabhi active hoga jab aap <b>@edit_the_gopal</b> ko Instagram par follow karenge.
+            </p>
+
+            <!-- Step 1: Follow Button -->
+            <a href="https://www.instagram.com/edit_the_gopal?stkn=a2k0ZXhnaHVobHRp" target="_blank" id="instaFollowLink" class="btn-insta" onclick="handleFollowClick()">
+                <i class="fa-brands fa-instagram"></i> Step 1: Follow @edit_the_gopal
+            </a>
+
+            <!-- Step 2: Verify Button -->
+            <button class="btn-unlock" id="verifyBtn" style="margin-top:10px; display:none;" onclick="verifyFollow()">
+                <i class="fa-solid fa-shield-check"></i> Step 2: Verify & Unlock
+            </button>
+
+            <!-- Final Download Link -->
+            <a href="#" target="_blank" id="downloadBtn" class="btn-download" style="display:none;">
+                <i class="fa-solid fa-download"></i> Download / Import Preset
+            </a>
+
+            <button class="close-btn" onclick="closeModal('lockModal')">Cancel / Close</button>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-box">
+            <h3 style="margin-bottom:15px;">Add Alight Motion Preset</h3>
+            
+            <form onsubmit="saveTemplate(event)">
+                <div class="form-group">
+                    <label>Your Instagram Profile Link</label>
+                    <input type="url" id="adminInstaUrl" class="form-control" value="https://www.instagram.com/edit_the_gopal?stkn=a2k0ZXhnaHVobHRp" required>
+                </div>
+                <div class="form-group">
+                    <label>Category Name</label>
+                    <input type="text" id="tplCategory" class="form-control" placeholder="e.g. Shake Effect, Velocity, XML" required>
+                </div>
+                <div class="form-group">
+                    <label>Template Title</label>
+                    <input type="text" id="tplTitle" class="form-control" placeholder="e.g. Smooth Shake Effect 2026" required>
+                </div>
+                <div class="form-group">
+                    <label>Short Description</label>
+                    <input type="text" id="tplDesc" class="form-control" placeholder="e.g. Best for beat sync reels" required>
+                </div>
+                <div class="form-group">
+                    <label>Video / Image Preview Thumbnail Link</label>
+                    <input type="url" id="tplImg" class="form-control" placeholder="https://..." required>
+                </div>
+                <div class="form-group">
+                    <label>Alight Motion Download Link (Drive/XML/Preset URL)</label>
+                    <input type="url" id="tplDownloadUrl" class="form-control" placeholder="https://alight.link/..." required>
+                </div>
+
+                <button type="submit" class="btn-unlock" style="margin-top:10px;">
+                    <i class="fa-solid fa-plus"></i> Add Template
+                </button>
+            </form>
+
+            <button class="close-btn" onclick="closeModal('adminModal')">Close Admin</button>
+        </div>
+    </div>
+
+    <script>
+        let myInstaProfile = "https://www.instagram.com/edit_the_gopal?stkn=a2k0ZXhnaHVobHRp";
+
+        const initialTemplates = [
+            {
+                id: 1,
+                category: "Shake Effect",
+                title: "Trending Beat Sync Shake Preset",
+                desc: "1-Click Alight Motion Project Import for viral reels.",
+                img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=500&q=80",
+                downloadUrl: "https://alightcreative.com"
+            },
+            {
+                id: 2,
+                category: "XML Presets",
+                title: "Attitude Status 3D XML File",
+                desc: "High quality text animation with glow effects.",
+                img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
+                downloadUrl: "https://alightcreative.com"
+            }
+        ];
+
+        let templates = [];
+        let currentDownloadUrl = "";
+        let hasClickedFollow = false;
+
+        window.onload = function() {
+            const storedInsta = localStorage.getItem('am_insta_url');
+            if(storedInsta) myInstaProfile = storedInsta;
+
+            const storedTpls = localStorage.getItem('am_templates');
+            if(storedTpls) {
+                templates = JSON.parse(storedTpls);
+            } else {
+                templates = initialTemplates;
+                localStorage.setItem('am_templates', JSON.stringify(templates));
+            }
+            renderStore();
+        };
+
+        function renderStore() {
+            const grid = document.getElementById('templateGrid');
+            const catBar = document.getElementById('categoriesBar');
+            
+            grid.innerHTML = "";
+            catBar.innerHTML = `<button class="cat-btn active" onclick="filterCategory('all', this)">All Templates</button>`;
+
+            const categories = [...new Set(templates.map(item => item.category))];
+            categories.forEach(cat => {
+                catBar.innerHTML += `<button class="cat-btn" onclick="filterCategory('${cat}', this)">${cat}</button>`;
+            });
+            templates.forEach(item => {
+                grid.innerHTML += `
+                    <div class="card" data-category="${item.category}">
+                        <button class="card-delete-btn" onclick="deleteTemplate(${item.id})"><i class="fa-solid fa-trash"></i></button>
+                        <div class="thumb-box">
+                            <span class="tag">${item.category}</span>
+                            <img src="${item.img}" alt="${item.title}">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">${item.title}</div>
+                            <div class="card-desc">${item.desc}</div>
+                            <button class="btn-unlock" onclick="openLockModal('${item.downloadUrl}')">
+                                <i class="fa-solid fa-lock"></i> Unlock Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterCategory(cat, element) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            document.querySelectorAll('.card').forEach(card => {
+                if(cat === 'all' || card.getAttribute('data-category') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Lock Flow logic
+        function openLockModal(downloadUrl) {
+            currentDownloadUrl = downloadUrl;
+            hasClickedFollow = false;
+
+            document.getElementById('instaFollowLink').href = myInstaProfile;
+            document.getElementById('instaFollowLink').style.display = 'flex';
+            document.getElementById('verifyBtn').style.display = 'none';
+            document.getElementById('downloadBtn').style.display = 'none';
+
+            document.getElementById('lockModal').style.display = 'flex';
+        }
+
+        function handleFollowClick() {
+            hasClickedFollow = true;
+            setTimeout(() => {
+                document.getElementById('verifyBtn').style.display = 'flex';
+            }, 1000);
+        }
+
+        function verifyFollow() {
+            if(hasClickedFollow) {
+                document.getElementById('instaFollowLink').style.display = 'none';
+                document.getElementById('verifyBtn').style.display = 'none';
+                
+                const dlBtn = document.getElementById('downloadBtn');
+                dlBtn.href = currentDownloadUrl;
+                dlBtn.style.display = 'flex';
+            } else {
+                alert('Pahle Instagram button par click karke follow karein!');
+            }
+        }
+
+        // Admin Actions
+        function openAdminModal() {
+            const pin = prompt("Admin PIN Daalein:");
+            if(pin === "1234") {
+                document.getElementById('adminInstaUrl').value = myInstaProfile;
+                document.getElementById('adminModal').style.display = 'flex';
+                document.querySelectorAll('.card-delete-btn').forEach(btn => btn.style.display = 'flex');
+            } else if(pin !== null) {
+                alert("Galat PIN!");
+            }
+        }
+
+        function saveTemplate(e) {
+            e.preventDefault();
+            
+            myInstaProfile = document.getElementById('adminInstaUrl').value;
+            localStorage.setItem('am_insta_url', myInstaProfile);
+
+            const newTpl = {
+                id: Date.now(),
+                category: document.getElementById('tplCategory').value,
+                title: document.getElementById('tplTitle').value,
+                desc: document.getElementById('tplDesc').value,
+                img: document.getElementById('tplImg').value,
+                downloadUrl: document.getElementById('tplDownloadUrl').value
+            };
+
+            templates.push(newTpl);
+            localStorage.setItem('am_templates', JSON.stringify(templates));
+
+            closeModal('adminModal');
+            renderStore();
+            alert('Template Naya Successfully Publish Ho Gaya!');
+        }
+
+        function deleteTemplate(id) {
+            if(confirm('Kya aap is template ko hatana chahte hain?')) {
+                templates = templates.filter(t => t.id !== id);
+                localStorage.setItem('am_templates', JSON.stringify(templates));
+                renderStore();
+            }
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+      </html>
